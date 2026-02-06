@@ -1,3 +1,6 @@
+#swagger files
+swagger-output.json
+
 # Logs
 logs
 *.log
