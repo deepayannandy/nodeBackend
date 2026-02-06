@@ -1,0 +1,12 @@
+{
+  "extends": "@tsconfig/node22/tsconfig.js",
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true,
+    "noEmitOnError": true,
+    "checkJs": true,
+    "removeComments": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
