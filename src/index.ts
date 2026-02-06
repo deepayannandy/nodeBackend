@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import connectDb from "./database/mongoDB.js";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "./swagger-output.json" with { type: "json" };
 
 //ENV config
 dotenv.config();
@@ -22,6 +24,10 @@ app.use(cookieParser());
 
 //Routes
 
+//Swagger api endpoint
+if (process.env.NODE_ENV === "DEV")
+  app.use("/api/v1/wiki", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.listen(process.env.PORT, () => {
-  console.log("Http Server is listening at", process.env.PORT);
+  console.log("Http Server is listening at port", process.env.PORT);
 });
