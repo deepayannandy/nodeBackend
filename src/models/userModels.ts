@@ -29,4 +29,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     require: false,
   },
+  isActive: {
+    type: Boolean,
+    require: true,
+    default: true,
+  },
 });
+
+const Users = mongoose.model("users", userSchema);
+
+export default Users;

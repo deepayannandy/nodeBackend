@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import connectDb from "./database/mongoDB.js";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "./swagger-output.json" with { type: "json" };
-
+import authenticationRoutes from "./routes/authenticationRoutes.js";
 //ENV config
 dotenv.config();
 
@@ -23,6 +23,7 @@ app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(cookieParser());
 
 //Routes
+app.use("/api/v1/auth", authenticationRoutes);
 
 //Swagger api endpoint
 if (process.env.NODE_ENV === "DEV")
